@@ -17,3 +17,11 @@ ri GC == go doc xxx
 ri GC::enable (method)
 
 [colorful format](https://stackoverflow.com/questions/24318420/colorful-format-for-titles-in-documentation-ri)
+
+---
+
+print
+<br>
+puts（结尾自动加换行）
+<br>
+p（输出原本数据格式，不会转义）
