@@ -20,8 +20,15 @@ ri GC::enable (method)
 
 ---
 
-print "xxx #{variable}"
+## Output
+
+`print "xxx #{variable}"`
 <br>
-puts（结尾自动加换行）
+`puts（结尾自动加换行）`
 <br>
-p（输出原本数据格式，不会转义）
+`p（输出原本数据格式，不会转义）`
+
+---
+
+## Comments
+
