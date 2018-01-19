@@ -20,7 +20,7 @@ ri GC::enable (method)
 
 ---
 
-print
+print "xxx #{variable}"
 <br>
 puts（结尾自动加换行）
 <br>
