@@ -32,3 +32,11 @@ xxx
 =end
 ```
 `# test comment`
+
+## Condition
+
+```
+if condition then
+    doing sth
+end
+```
