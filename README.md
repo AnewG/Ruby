@@ -36,7 +36,7 @@ xxx
 ## Condition
 
 ```
-if condition then
+if condition then(option)
     doing sth
 end
 ```
