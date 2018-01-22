@@ -82,5 +82,5 @@ person2 = { name : "x" }
 ## Regex
 
 ```
-/Ruby/ =~ "Yet Ruby xxx"
+/Ruby/i =~ "Yet Ruby xxx"
 ```
