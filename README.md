@@ -36,7 +36,17 @@ xxx
 ## Condition
 
 ```
+
 if condition then(option)
     doing sth
 end
+
+loop
+    while condition do(option)
+        doing sth
+    end
+
+    100.times do 
+        doing sth
+    end
 ```
