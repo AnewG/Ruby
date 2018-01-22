@@ -84,3 +84,9 @@ person2 = { name : "x" }
 ```
 /Ruby/i =~ "Yet Ruby xxx"
 ```
+
+## Command
+
+```
+puts "#{ARGV[0]}"
+```
