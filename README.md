@@ -90,3 +90,13 @@ person2 = { name : "x" }
 ```
 puts "#{ARGV[0]}"
 ```
+
+## Files
+
+```
+file = File.open(filename)
+file.each_line do |line|
+    print line
+end
+file.close
+```
