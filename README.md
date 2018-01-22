@@ -100,3 +100,18 @@ file.each_line do |line|
 end
 file.close
 ```
+
+## Function
+
+```
+def name
+    doing sth
+end
+```
+
+## Library
+
+```
+require: built-in library
+require_relative: current file dir relative
+```
