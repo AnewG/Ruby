@@ -49,4 +49,25 @@ loop
     100.times do 
         doing sth
     end
+    
+    arr.each do | variable1, variable2... |
+        doing sth
+    end
+```
+
+## Symbol
+
+```
+
+sym = :foo   // or :"my name"
+sym.to_s     // "foo", and to_i (int)
+"foo".to_sym // :foo
+
+lite version of string, without extra methods, like constant
+
+puts :myvalue.object_id  #2625806
+puts :myvalue.object_id  #2625806
+puts "myvalue".object_id #537872172
+puts "myvalue".object_id #537872152   
+
 ```
