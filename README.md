@@ -50,7 +50,7 @@ loop
         doing sth
     end
     
-    arr.each do | variable1, variable2... |
+    arr(hash).each do | variable1, variable2... |
         doing sth
     end
 ```
@@ -70,4 +70,17 @@ puts :myvalue.object_id  #2625806
 puts "myvalue".object_id #537872172
 puts "myvalue".object_id #537872152   
 
+```
+
+## Hash
+
+```
+person1 = { :name => "x" }
+person2 = { name : "x" }
+```
+
+## Regex
+
+```
+/Ruby/ =~ "Yet Ruby xxx"
 ```
