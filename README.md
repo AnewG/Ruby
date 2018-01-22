@@ -115,3 +115,19 @@ end
 require: built-in library
 require_relative: current file dir relative
 ```
+
+### Class
+
+对象 | 类
+---- | ---
+数值 | Numeric
+字串 | String
+数组 | Array
+散列 | Hash
+正则 | Regexp
+文件 | File
+符号 | Symbol
+
+```
+
+```
