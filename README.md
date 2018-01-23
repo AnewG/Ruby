@@ -41,6 +41,10 @@ if condition then(option)
     doing sth
 end
 
+unless condition then(option)
+    doing sth
+end
+
 loop
     while condition do(option)
         doing sth
