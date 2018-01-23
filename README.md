@@ -45,6 +45,19 @@ unless condition then(option)
     doing sth
 end
 
+=================
+
+case sth
+    when condition then(option)
+        doing sth
+    when condition, condition(or) then
+        doing sth
+    else
+        doing sth
+    end
+
+=================
+
 loop
     while condition do(option)
         doing sth
