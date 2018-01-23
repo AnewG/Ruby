@@ -116,7 +116,7 @@ require: built-in library
 require_relative: current file dir relative
 ```
 
-### Class
+## Class
 
 对象 | 类
 ---- | ---
@@ -130,4 +130,23 @@ require_relative: current file dir relative
 
 ```
 
+```
+
+## Variable
+
+```
+local    variable start with letter or _
+global   variable start with $
+instance variable start with @
+class    variable start with @@
+```
+
+## Assignment
+
+```
+a, b, *c = 1, 2, 3, 4, 5
+a => 1, b => 2, c => [3, 4, 5]
+
+a, *b, c = 1, 2, 3, 4, 5
+a => 1, b => [2, 3, 4], c => 5
 ```
