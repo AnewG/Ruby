@@ -76,6 +76,10 @@ loop
     100.times do 
         doing sth
     end
+    ---
+    100.times { |i|
+        doing sth
+    }
     
     arr(hash).each do | variable1, variable2... |
         doing sth
