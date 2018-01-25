@@ -62,8 +62,11 @@ case sth
     else
         doing sth
     end
+```
 
-=================
+## Loop
+
+```
 
 loop
     while condition do(option)
