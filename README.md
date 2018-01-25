@@ -38,6 +38,9 @@ xxx
 ```
 
 obj1.equal?(obj2) <=> obj1 === obj2  # 全等
+obj1.eql?(obj2) => 严谨的值比较  1 != 1.0
+obj1 == obj2    => 不严谨的值比较 1 == 1.0
+Hash 的 key 使用的是 eql
 
 if condition then(option)
     doing sth
