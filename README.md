@@ -37,6 +37,9 @@ xxx
 
 ```
 
+obj1.equal?(obj2) <=> obj1 === obj2  # 全等
+obj1.eql?(obj1)   <=> obj1 == obj2   # 值相等
+
 if condition then(option)
     doing sth
 end
