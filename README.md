@@ -72,6 +72,11 @@ loop
     while condition do(option)
         doing sth
     end
+    
+    (anti-while)
+    until condition do(option)
+        doing sth
+    end
 
     100.times do 
         doing sth
@@ -85,10 +90,16 @@ loop
         doing sth
     end
     
+    (use each inner implement)
     for xx in start..end(or object)
         do(option)
             doing sth
         end
+        
+    (deal loop)    
+    loop do
+        doing sth
+    end
 ```
 
 ## Symbol
