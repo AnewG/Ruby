@@ -84,6 +84,11 @@ loop
     arr(hash).each do | variable1, variable2... |
         doing sth
     end
+    
+    for xx in start..end
+        do(option)
+            doing sth
+        end
 ```
 
 ## Symbol
