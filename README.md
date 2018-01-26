@@ -85,7 +85,7 @@ loop
         doing sth
     end
     
-    for xx in start..end
+    for xx in start..end(or object)
         do(option)
             doing sth
         end
