@@ -143,7 +143,7 @@ person2 = { name : "x" }
 ```
 puts "#{ARGV[0]}"
 
-def foo(must1, must2, ..., *args)
+def foo(must1, must2, ..., *args)   # or must1, *args, mustLast
     args
 end
 ```
