@@ -182,7 +182,25 @@ require_relative: current file dir relative
 符号 | Symbol
 
 ```
+Class method: A::m(), A.m()
+Instance method: a.m()  mark: A#m
 
+def method (param1, param2..., paramN = 'ok')
+    doing sth
+    return (option, auto return last expression value)
+end
+
+def myloop
+    while true
+        yield    # execution block, injection by do..end block
+    end
+end
+num = 1
+myloop do
+    puts "num is #{num}"
+    break if num > 10
+    num * 2
+end
 ```
 
 ## Variable
