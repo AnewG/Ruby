@@ -142,6 +142,10 @@ person2 = { name : "x" }
 
 ```
 puts "#{ARGV[0]}"
+
+def foo(must1, must2, ..., *args)
+    args
+end
 ```
 
 ## Files
