@@ -96,7 +96,7 @@ loop
         doing sth
     end
     
-    (use each inner implement)
+    (use each inner implement, sugar of each)
     for xx in start..end(or object)
         do(option)
             doing sth
@@ -142,10 +142,6 @@ person2 = { name : "x" }
 
 ```
 puts "#{ARGV[0]}"
-
-def foo(must1, must2, ..., *args)   # or must1, *args, mustLast
-    args
-end
 ```
 
 ## Files
@@ -163,6 +159,33 @@ file.close
 ```
 def name
     doing sth
+end
+
+def foo(must1, must2, ..., *args)   # or must1, *args, mustLast
+    args
+end
+
+def method (param1, param2..., paramN = 'ok')
+    doing sth
+    return (option, auto return last expression value)
+end
+
+def method(x:, y:2, z:4, **args)
+    doing sth
+end
+
+=================
+
+def myloop
+    while true
+        yield    # execution block, injection by do..end block
+    end
+end
+num = 1
+myloop do
+    puts "num is #{num}"
+    break if num > 10
+    num *= 2
 end
 ```
 
@@ -186,25 +209,8 @@ require_relative: current file dir relative
 符号 | Symbol
 
 ```
-Class method: A::m(), A.m()
-Instance method: a.m()  mark: A#m
-
-def method (param1, param2..., paramN = 'ok')
-    doing sth
-    return (option, auto return last expression value)
-end
-
-def myloop
-    while true
-        yield    # execution block, injection by do..end block
-    end
-end
-num = 1
-myloop do
-    puts "num is #{num}"
-    break if num > 10
-    num *= 2
-end
+Class method: A::m(), A.m()         ---> start with @@
+Instance method: a.m()  mark: A#m   ---> start with @
 ```
 
 ## Variable
@@ -212,8 +218,6 @@ end
 ```
 local    variable start with letter or _
 global   variable start with $
-instance variable start with @
-class    variable start with @@
 ```
 
 ## Assignment
