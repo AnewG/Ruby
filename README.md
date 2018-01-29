@@ -46,7 +46,7 @@ if condition then(option)
     doing sth
 end
 
-xxx if xxx
+xxx if condition
 
 unless condition then(option)
     doing sth
@@ -70,7 +70,13 @@ case sth
 
 loop
     while condition do(option)
-        doing sth
+        if conditin 
+            break
+        elsif condiiton
+            next(continue)
+        else
+            redo
+        end
     end
     
     (anti-while)
