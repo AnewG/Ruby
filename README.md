@@ -170,7 +170,7 @@ def method (param1, param2..., paramN = 'ok')
     return (option, auto return last expression value)
 end
 
-def method(x:, y:2, z:4, **args)
+def method(x:, y:2, z:4, **args)    # or method({"y"=>2, "z"=>4})  method("y"=>2, "z"=>4)
     doing sth
 end
 
