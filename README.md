@@ -211,6 +211,20 @@ require_relative: current file dir relative
 ```
 Class method: A::m(), A.m()         ---> start with @@
 Instance method: a.m()  mark: A#m   ---> start with @
+
+xxx.class ==> Array
+xxx.class ==> String
+xxx.instance_of?(Array) ==> true or false
+xxx.is_a?(Father or More)
+
+class HelloWorld(first letter upper)
+    def initialize(myname = "Ruby")
+        @name = myname
+    end
+    def hello
+        puts "ok #{@name}"
+end
+bob = HelloWorld.new("Bob")
 ```
 
 ## Variable
