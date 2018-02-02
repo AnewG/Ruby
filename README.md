@@ -221,11 +221,15 @@ class HelloWorld(first letter upper)
     def initialize(myname = "Ruby")
         @name = myname
     end
+    
     def hello
         puts "ok #{@name}"
+    end
+    
     def name   # name getter
         @name
     end
+    
     def name=(value)  # name setter
         @name = value
     end
