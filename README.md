@@ -223,6 +223,12 @@ class HelloWorld(first letter upper)
     end
     def hello
         puts "ok #{@name}"
+    def name   # name getter
+        @name
+    end
+    def name=(value)  # name setter
+        @name = value
+    end
 end
 bob = HelloWorld.new("Bob")
 ```
