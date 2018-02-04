@@ -217,12 +217,39 @@ xxx.class ==> String
 xxx.instance_of?(Array) ==> true or false
 xxx.is_a?(Father or More)
 
+Singleton with Class method
+
+
 class HelloWorld(first letter upper)
  
     attr_reader :name
     attr_writer :name
     attr_accessor :name, :xxx, :yyy
 
+    Version = "1.0"    # Constant XXX::Version
+
+    # Class method
+    class << HelloWorld
+        def hello(name)
+            puts "#{name}"
+        end
+    end
+    
+    class << self
+        def sth(name)
+            puts "#{name}"
+        end
+    end
+    
+    def HelloWorld.sth(name)
+        puts "#{name}"
+    end
+    
+    def self.sth(name)
+        puts "#{name}"
+    end
+
+    # Instance method
     def initialize(myname = "Ruby")
         @name = myname
     end
