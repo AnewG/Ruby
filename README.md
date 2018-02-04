@@ -263,7 +263,10 @@ class HelloWorld < BaseClass         # first letter upper, default father is Obj
         puts "ok #{@name}"
         puts "ok #{self.name}"
         super()                      # call BaseClass hello method
+        
     end
+    alias father_hello hello         # or use `alias` keep father method
+    undef hello                      # undef hello method, include father hello method
     
     def name                         # name getter
         @name
@@ -274,6 +277,12 @@ class HelloWorld < BaseClass         # first letter upper, default father is Obj
     end
 end
 bob = HelloWorld.new("Bob")
+
+class << bob
+    def xxx                          # only in bob instance
+       puts "Hi"
+    end
+end
 ```
 
 ## Variable
