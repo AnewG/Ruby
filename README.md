@@ -220,7 +220,7 @@ Instance method   : a.m()  mark: A#m
 Class variable    : start with @@
 Instance variable : start with @
 
-class HelloWorld(first letter upper)
+class HelloWorld < BaseClass         # first letter upper, default father is Object, option is BasicObject(lower level)
  
     attr_reader :name, :xxx          # attr_writer, attr_accessor
 
@@ -262,6 +262,7 @@ class HelloWorld(first letter upper)
     def hello
         puts "ok #{@name}"
         puts "ok #{self.name}"
+        super()                      # call BaseClass hello method
     end
     
     def name                         # name getter
