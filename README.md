@@ -218,12 +218,18 @@ xxx.instance_of?(Array) ==> true or false
 xxx.is_a?(Father or More)
 
 class HelloWorld(first letter upper)
+ 
+    attr_reader :name
+    attr_writer :name
+    attr_accessor :name, :xxx, :yyy
+
     def initialize(myname = "Ruby")
         @name = myname
     end
     
     def hello
         puts "ok #{@name}"
+        puts "ok #{self.name}"
     end
     
     def name   # name getter
