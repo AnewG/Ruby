@@ -209,26 +209,34 @@ require_relative: current file dir relative
 符号 | Symbol
 
 ```
-Class method: A::m(), A.m()         ---> start with @@
-Instance method: a.m()  mark: A#m   ---> start with @
 
-xxx.class ==> Array
-xxx.class ==> String
-xxx.instance_of?(Array) ==> true or false
-xxx.is_a?(Father or More)
+xxx.class       ==> Array or String or other
+xxx.instance_of ==> true or false
+xxx.is_a        ==> check is specific class or father class or More
 
-Singleton with Class method
+Class method      : A::m() A.m()
+Instance method   : a.m()  mark: A#m
 
+Class variable    : start with @@
+Instance variable : start with @
 
 class HelloWorld(first letter upper)
  
-    attr_reader :name
-    attr_writer :name
-    attr_accessor :name, :xxx, :yyy
+    attr_reader :name, :xxx          # attr_writer, attr_accessor
 
-    Version = "1.0"    # Constant XXX::Version
-
+    Version = "1.0"                  # Constant XXX::Version
+    
+    def initialize(myname = "Ruby")  # constructor
+        @name = myname
+    end
+    
+    public                           # below are all public method
+                                     # or public :xxx=, :method
+                                     # or private(internal call)
+                                     # or protected(class and subclass can call by instance)
+    
     # Class method
+    
     class << HelloWorld
         def hello(name)
             puts "#{name}"
@@ -250,20 +258,17 @@ class HelloWorld(first letter upper)
     end
 
     # Instance method
-    def initialize(myname = "Ruby")
-        @name = myname
-    end
     
     def hello
         puts "ok #{@name}"
         puts "ok #{self.name}"
     end
     
-    def name   # name getter
+    def name                         # name getter
         @name
     end
     
-    def name=(value)  # name setter
+    def name=(value)                 # name setter
         @name = value
     end
 end
