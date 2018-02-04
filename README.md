@@ -220,7 +220,18 @@ Instance method   : a.m()  mark: A#m
 Class variable    : start with @@
 Instance variable : start with @
 
+module MyModule                      # C.include?(M), find order is C -> M -> C's father
+    Version = "1.0"
+    
+    def hello(xx)
+        puts "ok #{xx}"
+    end
+    module_function :hello           # like js -> export
+end
+
 class HelloWorld < BaseClass         # first letter upper, default father is Object, option is BasicObject(lower level)
+ 
+    include MyModule
  
     attr_reader :name, :xxx          # attr_writer, attr_accessor
 
