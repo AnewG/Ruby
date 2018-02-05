@@ -294,6 +294,17 @@ class << bob
        puts "Hi"
     end
 end
+
+# include expand class, extend expand object
+module Edition
+    def edition(n)
+        "#{self} 第#{n} 版"
+    end
+end
+
+str = "Ruby 基础教程"
+str.extend(Edition)
+str.edition(5) // Ruby 基础教程 第 5 版
 ```
 
 ## Variable
