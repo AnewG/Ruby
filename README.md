@@ -385,6 +385,10 @@ begin            # try...catch...finally
 rescue (=> e)
    xxx           # $!(e) $@(exception locate) or e, e.class|e.message|e.backtrace
    retry         # keyword: retry
+rescue Exception1, Exception2 => e3
+   yyy
+rescue Exception3 => e2
+   zzz
 ensure (option)
    xxx
 end
