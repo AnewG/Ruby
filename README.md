@@ -380,9 +380,12 @@ succ
 ## Exception
 
 ```
-begin    # try...catch
+begin            # try...catch...finally
    xxx
 rescue (=> e)
-   xxx   # $!(e) $@(exception locate) or e, e.class|e.message|e.backtrace
+   xxx           # $!(e) $@(exception locate) or e, e.class|e.message|e.backtrace
+   retry         # keyword: retry
+ensure (option)
+   xxx
 end
 ```
