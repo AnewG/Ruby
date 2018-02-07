@@ -319,6 +319,32 @@ end
 
 TestClass.cmethod
 TestClass.new.imethod
+
+
+Redefine Operator
+    class Point
+        attr_accessor :x, :y
+        
+        def initialize(x=0, y=0)
+            @x, @y = x, y
+        end
+        
+        def +(other)
+            self.class.new(x + other.x, y + other.y)
+        end
+        
+        def -@                        # +, -, ~, ! <==>  +@, -@, ~@, !@
+            self.class.new(-x, -y)
+        end
+        
+        def [](index)
+            ....
+        end
+    end
+    point0 = Point.new(3, 6)
+    point1 = Point.new(1, 8)
+    point0 + point1
+
 ```
 
 ## Variable
@@ -336,4 +362,17 @@ a => 1, b => 2, c => [3, 4, 5]
 
 a, *b, c = 1, 2, 3, 4, 5
 a => 1, b => [2, 3, 4], c => 5
+```
+
+## Operator
+
+```
+&.
+    item = ary&.first // when ary not nil,call ary.first. otherwise return nil  Ruby > 2.3.0
+
+../...
+    1..5 include 5, 1...5 not include 5
+    
+succ
+    val = "a", val.succ => "b" ....
 ```
