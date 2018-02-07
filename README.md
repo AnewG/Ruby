@@ -376,3 +376,13 @@ a => 1, b => [2, 3, 4], c => 5
 succ
     val = "a", val.succ => "b" ....
 ```
+
+## Exception
+
+```
+begin    # try...catch
+   xxx
+rescue (=> e)
+   xxx   # $!(e) $@(exception locate) or e, e.class|e.message|e.backtrace
+end
+```
