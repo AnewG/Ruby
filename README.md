@@ -302,9 +302,23 @@ module Edition
     end
 end
 
+module ClassMethods
+    def cmethod
+        "class"
+    end
+end
+
 str = "Ruby 基础教程"
 str.extend(Edition)
 str.edition(5) // Ruby 基础教程 第 5 版
+
+class TestClass
+    extend ClassMethods // 类方法
+    include InstanceMethods // 实例方法
+end
+
+TestClass.cmethod
+TestClass.new.imethod
 ```
 
 ## Variable
