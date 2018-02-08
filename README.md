@@ -411,6 +411,6 @@ raise ExceptionClass, string
 
 ```
 array = ["Ruby", "Perl", "PHP", "Python"]
-sorted = array.sort { |a, b| a <=> b }
+sorted = array.sort { |a, b| a <=> b }      # or array.sort_by{ |item| item.attribute }
 p sorted
 ```
