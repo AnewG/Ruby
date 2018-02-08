@@ -375,6 +375,12 @@ a => 1, b => [2, 3, 4], c => 5
     
 succ
     val = "a", val.succ => "b" ....
+
+<=>
+    1  <=> 10 # -1
+    10 <=> 1  # 1
+    1  <=> 1  # 0
+    
 ```
 
 ## Exception
@@ -405,7 +411,4 @@ raise ExceptionClass, string
 array = ["Ruby", "Perl", "PHP", "Python"]
 sorted = array.sort { |a, b| a <=> b }
 p sorted
-# 1  <=> 10 # -1
-# 10 <=> 1  # 1
-# 1  <=> 1  # 0
 ```
