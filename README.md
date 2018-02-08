@@ -405,4 +405,7 @@ raise ExceptionClass, string
 array = ["Ruby", "Perl", "PHP", "Python"]
 sorted = array.sort { |a, b| a <=> b }
 p sorted
+# 1  <=> 10 # -1
+# 10 <=> 1  # 1
+# 1  <=> 1  # 0
 ```
