@@ -381,6 +381,8 @@ succ
     10 <=> 1  # 1
     1  <=> 1  # 0
     
+%w
+    ary = %w(this string will become arr)
 ```
 
 ## Exception
