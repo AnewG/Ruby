@@ -392,4 +392,9 @@ rescue Exception3 => e2
 ensure (option)
    xxx
 end
+
+raise
+raise string
+raise ExceptionClass
+raise ExceptionClass, string
 ```
