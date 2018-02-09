@@ -475,7 +475,7 @@ p total(1, 10){ |num| num ** 2 }  # 385
 
 x = y = z = 0
 ary = [1, 2, 3]
-ary.each do | x; y |    # x; is local variable
+ary.each do | x; y |    # x; is local variable, y is local variable(nil), z is global variable
     y = x
     z = x
     p [x, y, z]
