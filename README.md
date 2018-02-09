@@ -470,4 +470,19 @@ def total2(from, to, &block)     # Proc param always last param
 end
 p total(1, 10) # 55
 p total(1, 10){ |num| num ** 2 }  # 385
+
+====================
+
+x = y = z = 0
+ary = [1, 2, 3]
+ary.each do | x; y |
+    y = x
+    z = x
+    p [x, y, z]
+end
+# [1, 1, 1]
+# [2, 2, 2]
+# [3, 3, 3]
+# [0, 0, 3]
+
 ```
