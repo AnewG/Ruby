@@ -413,4 +413,34 @@ raise ExceptionClass, string
 array = ["Ruby", "Perl", "PHP", "Python"]
 sorted = array.sort { |a, b| a <=> b }      # or array.sort_by{ |item| item.attribute }
 p sorted
+
+def total(from, to)
+    result = 0
+    from.upto(to) do |num|       # upto, pick number min to max
+        if block_given?
+            result += yield(num)
+        else
+            result += num
+        end
+    end
+    return result
+end
+p total(1, 10) # 55
+p total(1, 10){ |num| num ** 2 }  # 385
+
+def block_args_test
+    yield()
+    yield(1)
+    yield(1,2,3)
+end
+block_args_test do |a|         # [nil], [1], [1]
+    p [a]
+end
+block_args_test do |a, b, c|   # [nil,nil,nil], [1,nil,nil], [1,2,3]
+    p [a, b, c]
+end
+block_args_test do |*a|        # [[]], [[1]], [[1,2,3]]
+    p [a]
+end
+# more is nil, less is empty
 ```
