@@ -487,3 +487,17 @@ p [x, y, z]
 # [0, 0, 3]
 
 ```
+
+## Class Map
+
+```                      
+                          |--- Fixnum (couputer)
+           |--- Integer --
+Numeric ---               |___ Bignum (science)
+           |___ Float
+           |___ Rational (123.45r)
+           |___ Complex  (复数, 虚数部分 123.45i)
+           
+OCT: 0123 or 0o123 | BIN: 0b11101 | DEC: 0d123
+    
+```
