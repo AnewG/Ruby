@@ -414,6 +414,8 @@ array = ["Ruby", "Perl", "PHP", "Python"]
 sorted = array.sort { |a, b| a <=> b }      # or array.sort_by{ |item| item.attribute }
 p sorted
 
+====================
+
 def total(from, to)
     result = 0
     from.upto(to) do |num|       # upto, pick number min to max
@@ -427,6 +429,8 @@ def total(from, to)
 end
 p total(1, 10) # 55
 p total(1, 10){ |num| num ** 2 }  # 385
+
+====================
 
 def block_args_test
     yield()
@@ -443,4 +447,27 @@ block_args_test do |*a|        # [[]], [[1]], [[1,2,3]]
     p [a]
 end
 # more is nil, less is empty
+
+====================
+
+hello = Proc.new do |name|
+    puts "Hello, #{name}."
+end
+hello.call("World")
+
+modify total function:
+
+def total2(from, to, &block)     # Proc param always last param
+    result = 0
+    from.upto(to) do |num|       # upto, pick number min to max
+        if block
+            result += block.call(num)
+        else
+            result += num
+        end
+    end
+    return result
+end
+p total(1, 10) # 55
+p total(1, 10){ |num| num ** 2 }  # 385
 ```
