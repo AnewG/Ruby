@@ -515,4 +515,18 @@ a = Array.new(3) do [0,0,0] end   # not same reference
 
 String
 
+Here Document
+<<"token" or 'token', different usage. option <<- and <<~
+xxx
+token
+
+puts `cat /etc/hosts`
+
+delete last: chop and chop! 
+delete \n  : chomp and chomp!
+
+====================
+
+Hash
+
 ```
