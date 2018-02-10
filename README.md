@@ -500,4 +500,12 @@ Numeric ---               |___ Bignum (science)
            
 OCT: 0123 or 0o123 | BIN: 0b11101 | DEC: 0d123
     
+====================
+
+Array
+
+arr[2,4] = some_arr # replace idx 2 to 4 with a new value
+
+交集 ary = ary1 & ary2, 并集 ary = ary1 | ary2, 差集 ary = ary1 - ary2
+
 ```
