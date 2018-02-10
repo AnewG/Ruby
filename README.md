@@ -508,4 +508,11 @@ arr[2,4] = some_arr # replace idx 2 to 4 with a new value
 
 交集 ary = ary1 & ary2, 并集 ary = ary1 | ary2, 差集 ary = ary1 - ary2
 
+a = Array.new(3, [0,0,0])         # same reference
+a = Array.new(3) do [0,0,0] end   # not same reference
+
+====================
+
+String
+
 ```
