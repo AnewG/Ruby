@@ -543,6 +543,10 @@ Regexp
 
 ====================
 
-IO
+IO --- FILE
+
+STDIN  / $stdin
+STDOUT / $stdout
+STDERR / $stderr
 
 ```
