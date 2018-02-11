@@ -529,4 +529,20 @@ delete \n  : chomp and chomp!
 
 Hash
 
+====================
+
+Regexp
+
+%r(pattern)
+%r<pattern>
+
+=~ | !~
+
+至少0次非贪婪 .*?
+至少1次非贪婪 .+?
+
+====================
+
+IO
+
 ```
