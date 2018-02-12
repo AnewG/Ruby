@@ -383,6 +383,10 @@ succ
     
 %w
     ary = %w(this string will become arr)
+    
+and, or
+    do_something() and do_something_else()
+    
 ```
 
 ## Exception
