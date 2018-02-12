@@ -387,6 +387,9 @@ succ
 and, or
     do_something() and do_something_else()
     
+<<
+    'hello' << ' world' #=> "hello world"
+    
 ```
 
 ## Exception
