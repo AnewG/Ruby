@@ -553,6 +553,49 @@ IO.popen(command, mode) <==> open("|command", mode)
 
 * DIR
 
+====================
 
+Encoding
+
+magic comment: # encoding: utf-8
+
+str = '你好'
+p str.encoding # <Encoding:UTF-8>
+str2 = str.encode("GBK")
+p str2.encoding
+
+====================
+
+Time & Date
+
+====================
+
+Proc
+
+prc1 = Proc.new do |a, b, c|
+    p [a, b, c]
+end
+
+prc2 = lambda do |a, b, c|
+    p [a, b, c]
+end
+
+other way define lambda: square = ->(n){ return n }
+
+闭包
+def counter
+    c = 0
+    Proc.new do
+        c += 1
+    end
+end
+
+or
+
+def power_of(n)
+    lambda do |x|
+        return x ** n
+    end
+end
 
 ```
