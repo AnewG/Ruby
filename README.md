@@ -543,10 +543,16 @@ Regexp
 
 ====================
 
-IO --- FILE
+* IO --- FILE
 
 STDIN  / $stdin
 STDOUT / $stdout
 STDERR / $stderr
+
+IO.popen(command, mode) <==> open("|command", mode)
+
+* DIR
+
+
 
 ```
