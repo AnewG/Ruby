@@ -63,8 +63,44 @@ end
 
 R:
 
+users = User.all
+user = User.first
+david = User.find_by(name: 'David')
+users = User.where(name: 'David', occupation: 'Code Artist').order(created_at: :desc)
+
 U:
+
+user = User.find_by(name: 'David')
+user.name = 'Dave'
+user.save
+
+user = User.find_by(name: 'David')
+user.update(name: 'Dave')
+
+// multiple row update
+User.update_all "max_login_attempts = 3, must_change_password = 'true'"
 
 D:
 
+user = User.find_by(name: 'David')
+user.destroy
+
+```
+
+### Validation
+
+```
+class User < ApplicationRecord
+  validates :name, presence: true
+end
+ 
+user = User.new
+user.save  # => return false
+user.save! # => raise ActiveRecord::RecordInvalid: Validation failed: Name can't be blank
+```
+
+### Migration
+
+```
+@TODO...
 ```
