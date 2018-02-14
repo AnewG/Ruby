@@ -4,22 +4,22 @@
 ### Rules
 
 ```
-class     table
+class      table
 =====================
 Article	  articles
-LineItem	line_items
-Deer	    deers
-Mouse	    mice
+LineItem	  line_items
+Deer	  deers
+Mouse	  mice
 Person	  people
 
 default: id                       is primary key
          singularizedTableName_id is foreign key
          created_at
- updated_at
-lock_version           乐观锁, 悲观锁
-type                   单表继承
-(associationName)_type 存储多态关联的类型
-(tableName)_count      缓存所关联对象的数量。一个 Article 多个 Comment，comments_count 列存储文章现有评论数
+         updated_at
+         lock_version           乐观锁, 悲观锁
+         type                   单表继承
+         (associationName)_type 存储多态关联的类型
+         (tableName)_count      缓存所关联对象的数量。一个 Article 多个 Comment，comments_count 列存储文章现有评论数
 ```
 
 ### Create AR
