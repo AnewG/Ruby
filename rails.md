@@ -6,11 +6,11 @@
 ```
 class      table
 =====================
-Article	  articles
+Article    articles
 LineItem   line_items
-Deer	  deers
-Mouse	  mice
-Person	  people
+Deer       deers
+Mouse      mice
+Person     people
 
 default: id                     is primary key
          TableName_id           is foreign key
