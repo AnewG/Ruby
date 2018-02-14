@@ -47,8 +47,24 @@ then:
 ### CRUD
 
 ```
+
 C:
+
+user = User.create(name: "David", occupation: "Code Artist")  # 创建新对象，并将其存入数据库
+
+user = User.new                                               # 只创建新对象
+user.name = "David"
+user.occupation = "Code Artist"
+
+user = User.new do |u|
+  u.name = "David"
+  u.occupation = "Code Artist"
+end
+
 R:
+
 U:
+
 D:
+
 ```
