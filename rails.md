@@ -7,13 +7,13 @@
 class      table
 =====================
 Article	  articles
-LineItem	  line_items
+LineItem   line_items
 Deer	  deers
 Mouse	  mice
 Person	  people
 
-default: id                       is primary key
-         singularizedTableName_id is foreign key
+default: id                     is primary key
+         TableName_id           is foreign key
          created_at
          updated_at
          lock_version           乐观锁, 悲观锁
