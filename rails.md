@@ -27,6 +27,8 @@ default: id                     is primary key
 ```
 class Product < ApplicationRecord  # table: products
     # do sth
+    self.table_name = "custom_tableName"
+    self.primary_key = "custom_primaryId"
 end
 
 if products is:
@@ -40,4 +42,13 @@ then:
   p = Product.new
   p.name = "Some Book"
   puts p.name # "Some Book"
+```
+
+### CRUD
+
+```
+C:
+R:
+U:
+D:
 ```
