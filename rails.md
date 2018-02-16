@@ -139,4 +139,6 @@ class ChangeProductsPrice < ActiveRecord::Migration[5.0]
     end
   end
 end
+
+# bin/rails generate migration XXXX xxxxxx, detail in docs
 ```
