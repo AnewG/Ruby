@@ -102,5 +102,41 @@ user.save! # => raise ActiveRecord::RecordInvalid: Validation failed: Name can't
 ### Migration
 
 ```
-@TODO...
+class CreateProducts < ActiveRecord::Migration[5.0]
+  def change
+    create_table :products do |t|
+      t.string :name
+      t.text :description   # field_type :field_name
+ 
+      t.timestamps          # timestamps includes created_at and updated_at
+    end
+  end
+end
+
+# withdraw
+class ChangeProductsPrice < ActiveRecord::Migration[5.0]
+  def change
+    reversible do |dir|
+      change_table :products do |t|
+        dir.up   { t.change :price, :string }
+        dir.down { t.change :price, :integer }
+      end
+    end
+  end
+end
+
+or:
+class ChangeProductsPrice < ActiveRecord::Migration[5.0]
+  def up
+    change_table :products do |t|
+      t.change :price, :string
+    end
+  end
+ 
+  def down
+    change_table :products do |t|
+      t.change :price, :integer
+    end
+  end
+end
 ```
