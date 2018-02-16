@@ -142,4 +142,5 @@ end
 
 # bin/rails generate migration XXXX xxxxxx, detail in docs
 # https://ruby-china.github.io/rails-guides/active_record_migrations.html
+# http://web.siwei.me/migration.html
 ```
