@@ -166,3 +166,9 @@ end
 # after_save is always after after_create and after_update
 # after_find before after_initialize
 ```
+
+### Association
+
+```
+@TODO...
+```
