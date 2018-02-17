@@ -152,6 +152,8 @@ class User < ApplicationRecord
   validates :login, :email, presence: true
  
   before_validation :ensure_login_has_a_value
+  
+  after_validation :set_location, on: [ :create, :update ]
  
   private
     def ensure_login_has_a_value
@@ -160,4 +162,6 @@ class User < ApplicationRecord
       end
     end
 end
+
+# after_save is always after after_create and after_update
 ```
