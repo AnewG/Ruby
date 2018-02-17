@@ -181,10 +181,10 @@ end
 @book = @author.books.create(published_at: Time.now)  # auto assign author_id
 @author.destroy                                       # also destroy all author's books
 
-# belongs_to
-# has_one
+# belongs_to                   one to one, B belongs_to A, B table have A_id foreign key 
+# has_one                      one to one, A has_one B
 # has_many
 # has_many :through
-# has_one :through
+# has_one  :through
 # has_and_belongs_to_many
 ```
