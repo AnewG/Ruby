@@ -136,6 +136,8 @@ person2 = { name : "x" }
 
 ```
 /Ruby/i =~ "Yet Ruby xxx"
+
+Use \A and \z to match the start and end of the string, ^ and $ match the start/end of a line.
 ```
 
 ## Command
