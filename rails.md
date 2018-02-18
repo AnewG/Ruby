@@ -181,9 +181,20 @@ end
 @book = @author.books.create(published_at: Time.now)  # auto assign author_id
 @author.destroy                                       # also destroy all author's books
 
+=============================
+
 # belongs_to                   one to one,  B belongs_to A, B table have A_id foreign key 
+
+=============================
+
 # has_one                      one to one,  A has_one B
+
+=============================
+
 # has_many                     one to many, A has_many B,   B table have A_id foreign key
+
+=============================
+
 # has_many :through            many to many
 
 class Physician < ApplicationRecord
@@ -219,6 +230,8 @@ end
 
 # @document.paragraphs will working, simplify nest normal has many
 
+=============================
+
 # has_one  :through            one to one by third modal
 
 class Supplier < ApplicationRecord
@@ -234,6 +247,8 @@ end
 class AccountHistory < ApplicationRecord
   belongs_to :account
 end
+
+=============================
 
 # has_and_belongs_to_many      auto many to many, not need third modal
 
