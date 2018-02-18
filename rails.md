@@ -262,4 +262,24 @@ end
 
 # will generate assemblies_parts table, assembly_id and part_id 
 
+=============================
+
+# polymorphic association
+
+class Picture < ApplicationRecord
+  belongs_to :imageable, polymorphic: true
+end
+ 
+class Employee < ApplicationRecord
+  has_many :pictures, as: :imageable
+end
+ 
+class Product < ApplicationRecord
+  has_many :pictures, as: :imageable
+end
+
+# @employee.pictures
+# @product.pictures
+# @picture.imageable will get parent modal
+
 ```
