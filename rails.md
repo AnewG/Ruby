@@ -181,10 +181,70 @@ end
 @book = @author.books.create(published_at: Time.now)  # auto assign author_id
 @author.destroy                                       # also destroy all author's books
 
-# belongs_to                   one to one, B belongs_to A, B table have A_id foreign key 
-# has_one                      one to one, A has_one B
-# has_many
-# has_many :through
-# has_one  :through
-# has_and_belongs_to_many
+# belongs_to                   one to one,  B belongs_to A, B table have A_id foreign key 
+# has_one                      one to one,  A has_one B
+# has_many                     one to many, A has_many B,   B table have A_id foreign key
+# has_many :through            many to many
+
+class Physician < ApplicationRecord
+  has_many :appointments
+  has_many :patients, through: :appointments
+end
+ 
+class Appointment < ApplicationRecord
+  belongs_to :physician
+  belongs_to :patient
+end
+ 
+class Patient < ApplicationRecord
+  has_many :appointments
+  has_many :physicians, through: :appointments
+end
+
+---------------------------
+
+class Document < ApplicationRecord
+  has_many :sections
+  has_many :paragraphs, through: :sections
+end
+ 
+class Section < ApplicationRecord
+  belongs_to :document
+  has_many :paragraphs
+end
+ 
+class Paragraph < ApplicationRecord
+  belongs_to :section
+end
+
+# @document.paragraphs will working, simplify nest normal has many
+
+# has_one  :through            one to one by third modal
+
+class Supplier < ApplicationRecord
+  has_one :account
+  has_one :account_history, through: :account
+end
+ 
+class Account < ApplicationRecord
+  belongs_to :supplier
+  has_one :account_history
+end
+ 
+class AccountHistory < ApplicationRecord
+  belongs_to :account
+end
+
+# has_and_belongs_to_many      auto many to many, not need third modal
+
+class Assembly < ApplicationRecord
+  has_and_belongs_to_many :parts
+end
+ 
+class Part < ApplicationRecord
+  has_and_belongs_to_many :assemblies
+end
+
+# will generate assemblies_parts table, assembly_id and part_id 
+
 ```
