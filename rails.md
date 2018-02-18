@@ -165,6 +165,18 @@ end
 
 # after_save is always after after_create and after_update
 # after_find before after_initialize
+
+# Association Callbacks
+
+class Author < ApplicationRecord
+  has_many :books, before_add: :check_credit_limit
+  # multi callback ===> before_add: [:check_credit_limit, :calculate_shipping_charges]
+ 
+  def check_credit_limit(book)
+    # ...
+  end
+end
+
 ```
 
 ### Association
