@@ -310,5 +310,42 @@ end
 ### Query
 
 ```
-@TODO...
+# Lock
+
+      Optimistic lock
+          table need lock_version field
+
+          ActiveRecord::Base.lock_optimistically = false # off optimistic lock
+
+          class Client < ApplicationRecord
+              self.locking_column = :lock_client_column    # change default lock field name
+          end
+          
+      Pessimistic lock
+          
+          Item.transaction do
+              i = Item.lock.first
+              i.name = 'Jones'
+              i.save!
+          end
+          
+          will generate SQL:
+              BEGIN
+              SELECT * FROM `items` LIMIT 1 FOR UPDATE
+              UPDATE `items` SET `updated_at` = '2009-02-07 18:05:56', `name` = 'Jones' WHERE `id` = 1
+              COMMIT
+              
+          # specific lock type
+          Item.transaction do
+              i = Item.lock("LOCK IN SHARE MODE").find(1)
+              i.increment!(:views)
+          end
+          
+          item = Item.first
+              item.with_lock do
+              # 这个块在事务中调用, item 已经锁定
+              item.increment!(:views)
+          end
+          
+# Join
 ```
