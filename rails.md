@@ -348,4 +348,62 @@ end
           end
           
 # Join
+
+class Category < ApplicationRecord
+  has_many :articles
+end
+ 
+class Article < ApplicationRecord
+  belongs_to :category
+  has_many   :comments
+  has_many   :tags
+end
+ 
+class Comment < ApplicationRecord
+  belongs_to :article
+  has_one    :guest
+end
+ 
+class Guest < ApplicationRecord
+  belongs_to :comment
+end
+ 
+class Tag < ApplicationRecord
+  belongs_to :article
+end
+
+=====================
+
+Category.joins(:articles)  
+
+SELECT categories.* FROM categories
+  INNER JOIN articles ON articles.category_id = categories.id
+
+----------------------
+
+Article.joins(:category, :comments)
+
+SELECT articles.* FROM articles
+  INNER JOIN categories ON articles.category_id = categories.id
+  INNER JOIN comments ON comments.article_id = articles.id
+
+----------------------
+
+Article.joins(comments: :guest)
+
+SELECT articles.* FROM articles
+  INNER JOIN comments ON comments.article_id = articles.id
+  INNER JOIN guests ON guests.comment_id = comments.id
+
+----------------------
+
+Category.joins(articles: [{ comments: :guest }, :tags])
+
+SELECT categories.* FROM categories
+  INNER JOIN articles ON articles.category_id = categories.id
+  INNER JOIN comments ON comments.article_id = articles.id
+  INNER JOIN guests ON guests.comment_id = comments.id
+  INNER JOIN tags ON tags.article_id = articles.id
+
+
 ```
