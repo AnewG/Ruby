@@ -405,5 +405,10 @@ SELECT categories.* FROM categories
   INNER JOIN guests ON guests.comment_id = comments.id
   INNER JOIN tags ON tags.article_id = articles.id
 
+----------------------
 
+Author.left_outer_joins(:posts).distinct.select('authors.*, COUNT(posts.*) AS posts_count').group('authors.id')
+
+SELECT DISTINCT authors.*, COUNT(posts.*) AS posts_count FROM "authors"
+LEFT OUTER JOIN posts ON posts.author_id = authors.id GROUP BY authors.id
 ```
