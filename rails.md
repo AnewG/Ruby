@@ -412,3 +412,9 @@ Author.left_outer_joins(:posts).distinct.select('authors.*, COUNT(posts.*) AS po
 SELECT DISTINCT authors.*, COUNT(posts.*) AS posts_count FROM "authors"
 LEFT OUTER JOIN posts ON posts.author_id = authors.id GROUP BY authors.id
 ```
+
+## Views
+
+```
+@TODO...
+```
