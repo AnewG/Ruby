@@ -416,5 +416,19 @@ LEFT OUTER JOIN posts ON posts.author_id = authors.id GROUP BY authors.id
 ## Views
 
 ```
-@TODO...
+.erb     : ERB 模板（含有嵌入式 Ruby 代码的 HTML）的标准扩展名 
+.builder : Builder 模板（XML 生成器）的标准扩展名
+
+# render
+
+render "edit"         | render :edit         | render "other/show"   |   render file: "/xxx/xxx"
+
+render json: @product | render xml: @product | render js: "alert('Hello Rails');"
+
+layout:
+
+
+# redirect_to
+
+# head
 ```
