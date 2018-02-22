@@ -426,7 +426,13 @@ render "edit"         | render :edit         | render "other/show"   |   render 
 render json: @product | render xml: @product | render js: "alert('Hello Rails');"
 
 layout:
-
+    default rule is: PhotosController => app/views/layouts/photos.html.erb
+    if no exist => app/views/layouts/application.html.erb
+    
+    class ProductsController < ApplicationController
+        layout "inventory"                                                                 # specific layout
+        layout Proc.new { |controller| controller.request.xhr? ? "popup" : "application" } # dynamic layout
+    end
 
 # redirect_to
 
