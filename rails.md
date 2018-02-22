@@ -433,6 +433,8 @@ layout:
         layout "inventory"                                                                 # specific layout
         layout Proc.new { |controller| controller.request.xhr? ? "popup" : "application" } # dynamic layout
     end
+    
+    局部视图文件名已下划线开头
 
 # redirect_to
 
