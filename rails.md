@@ -436,5 +436,9 @@ layout:
 
 # redirect_to
 
+redirect_to photos_url, status: 301  
+
+redirect_back(fallback_location: root_path)
+
 # head
 ```
