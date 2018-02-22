@@ -432,9 +432,17 @@ layout:
     class ProductsController < ApplicationController
         layout "inventory"                                                                 # specific layout
         layout Proc.new { |controller| controller.request.xhr? ? "popup" : "application" } # dynamic layout
+        # render 的内容将在 layout 的 yield 处输出, 有多个 yield 用 content_for
     end
     
-    局部视图文件名已下划线开头
+    # 局部视图文件名已下划线开头
+    # 在 ERB 文件中 <%= render "xx" %>
+    # 传值到局部视图的 yield 中并传参
+    <%= render "shared/search_filters", search: @q do |f| %> # get local param can use local_assigns[:xxx]
+      <p>
+        Name contains: <%= f.text_field :name_contains %>
+      </p>
+    <% end %>
 
 # redirect_to
 
