@@ -441,4 +441,16 @@ redirect_to photos_url, status: 301
 redirect_back(fallback_location: root_path)
 
 # head
+
+head :bad_request
+
+will generate:
+  HTTP/1.1 400 Bad Request
+  Connection: close
+  Date: Sun, 24 Jan 2010 12:15:53 GMT
+  Transfer-Encoding: chunked
+  Content-Type: text/html; charset=utf-8
+  X-Runtime: 0.013483
+  Set-Cookie: _blog_session=...snip...; path=/; HttpOnly
+  Cache-Control: no-cache
 ```
