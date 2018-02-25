@@ -480,6 +480,8 @@ default will generate:
   Form contents
 </form>
 
+----------------------
+
 more detail:
 
 <%= form_tag("/search", method: "get") do %>
@@ -488,8 +490,6 @@ more detail:
   <%= submit_tag("Search") %>
 <% end %>
 
-============>
-
 <form accept-charset="UTF-8" action="/search" method="get">
   <input name="utf8" type="hidden" value="&#x2713;" />
   <label for="q">Search for:</label>
@@ -497,11 +497,47 @@ more detail:
   <input name="commit" type="submit" value="Search" />
 </form>
 
+----------------------
+
 by modal, @person.name() will be:
 
 <%= text_field(:person, :name) %>
 
-============>
-
 <input id="person_name" name="person[name]" type="text" value="Henr
+
+----------------------
+
+bind object to form:
+
+def new
+  @article = Article.new
+end
+
+<%= form_for @article, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :body, size: "60x12" %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<form accept-charset="UTF-8" action="/articles" method="post" class="nifty_form">
+  <input id="article_title" name="article[title]" type="text" />
+  <textarea id="article_body" name="article[body]" cols="60" rows="12"></textarea>
+  <input name="commit" type="submit" value="Create" />
+</form>
+
+----------------------
+
+fields_for (bind object to field):
+
+<%= form_for @person, url: {action: "create"} do |person_form| %>
+  <%= person_form.text_field :name %>
+  <%= fields_for @person.contact_detail do |contact_detail_form| %>
+    <%= contact_detail_form.text_field :phone_number %>
+  <% end %>
+<% end %>
+
+<form accept-charset="UTF-8" action="/people" class="new_person" id="new_person" method="post">
+  <input id="person_name" name="person[name]" type="text" />
+  <input id="contact_detail_phone_number" name="contact_detail[phone_number]" type="text" />
+</form>
 ```
