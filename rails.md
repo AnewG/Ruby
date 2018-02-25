@@ -496,4 +496,12 @@ more detail:
   <input id="q" name="q" type="text" />
   <input name="commit" type="submit" value="Search" />
 </form>
+
+by modal, @person.name() will be:
+
+<%= text_field(:person, :name) %>
+
+============>
+
+<input id="person_name" name="person[name]" type="text" value="Henr
 ```
