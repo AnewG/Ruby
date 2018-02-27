@@ -541,3 +541,19 @@ fields_for (bind object to field):
   <input id="contact_detail_phone_number" name="contact_detail[phone_number]" type="text" />
 </form>
 ```
+
+### Upload
+
+```
+<%= form_tag({action: :upload}, multipart: true) do %>
+  <%= file_field_tag 'picture' %>
+<% end %>
+# params[:picture]
+
+or
+
+<%= form_for @person do |f| %>
+  <%= f.file_field :picture %>
+<% end %>
+# params[:person][:picture]
+```
