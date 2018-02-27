@@ -556,4 +556,13 @@ or
   <%= f.file_field :picture %>
 <% end %>
 # params[:person][:picture]
+
+
+def upload
+  uploaded_io = params[:person][:picture]
+  File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+    file.write(uploaded_io.read)
+  end
+end
+# put in {Rails.root}/public/uploads
 ```
