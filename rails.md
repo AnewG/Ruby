@@ -638,3 +638,21 @@ Flash Data:
 cookies[:commenter_name] = @comment.author
 cookies.delete(:commenter_name)
 ```
+
+### filter
+
+```
+class ApplicationController < ActionController::Base
+  before_action :require_login
+  # skip_before_action :require_login, only: [:new, :create], will skip new and create method 
+ 
+  private
+ 
+  def require_login
+    unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_login_url # halts request cycle
+    end
+  end
+end
+```
