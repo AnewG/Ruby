@@ -631,3 +631,10 @@ Flash Data:
       end
     end
 ```
+
+### cookies
+
+```
+cookies[:commenter_name] = @comment.author
+cookies.delete(:commenter_name)
+```
