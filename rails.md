@@ -566,3 +566,14 @@ def upload
 end
 # put in {Rails.root}/public/uploads
 ```
+
+## Controller
+
+```
+Rails 控制器的命名约定是，最后一个单词使用复数形式，但也有例外，控制器的命名约定与模型不同，模型的名字习惯使用单数形式。
+
+class ClientsController < ApplicationController
+  def new
+  end
+end
+```
