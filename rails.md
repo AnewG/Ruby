@@ -574,6 +574,16 @@ Rails 控制器的命名约定是，最后一个单词使用复数形式，但�
 
 class ClientsController < ApplicationController
   def new
+    # GET /clients?ids[]=1&ids[]=2&ids[]=3 ====> params[:ids] is ["1", "2", "3"]
+    if params[:status] == "activated"
+      @clients = Client.activated
+    else
+      @clients = Client.inactivated
+    end
+  end
+  
+  def default_url_options    # rails internal use
+    { locale: I18n.locale }
   end
 end
 ```
