@@ -604,4 +604,30 @@ params.require(:xx).permit!   # all permit
 ActionDispatch::Session::CookieStore
 ActionDispatch::Session::CacheStore
 ActionDispatch::Session::ActiveRecordStore
+
+session[:current_user_id] = user.id
+session[:current_user_id] = nil
+reset_session
+
+Flash Data:
+    flash[:notice] = "You have successfully logged out." # will display on next request
+    flash.now[:error] = "Could not save client"          # will display on current page
+
+    or with redirect
+
+    redirect_to root_url, notice: "You have successfully logged out."
+    redirect_to root_url, alert: "You're stuck here!"
+    redirect_to root_url, flash: { referral_code: 1234 }
+
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
+
+    class MainController < ApplicationController
+      def index
+        flash.keep           # 从别处重定向来后持久存储所有闪现
+        flash.keep(:notice)  # 还可以指定一个键，只保留某种闪现
+        redirect_to users_url
+      end
+    end
 ```
