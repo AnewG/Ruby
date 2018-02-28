@@ -645,7 +645,7 @@ cookies.delete(:commenter_name)
 class ApplicationController < ActionController::Base
   before_action :require_login
   # skip_before_action :require_login, only: [:new, :create], will skip new and create method 
- 
+  # around_action xxxxx
   private
  
   def require_login
