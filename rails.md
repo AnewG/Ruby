@@ -587,3 +587,13 @@ class ClientsController < ApplicationController
   end
 end
 ```
+
+### params
+
+```
+白名单
+params.permit(:xx)
+params.permit(xx: [])         # array
+params.permit(xx: {})         # hash
+params.require(:xx).permit!   # all permit
+```
