@@ -597,3 +597,11 @@ params.permit(xx: [])         # array
 params.permit(xx: {})         # hash
 params.require(:xx).permit!   # all permit
 ```
+
+### session
+
+```
+ActionDispatch::Session::CookieStore
+ActionDispatch::Session::CacheStore
+ActionDispatch::Session::ActiveRecordStore
+```
