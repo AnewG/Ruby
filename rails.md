@@ -656,3 +656,12 @@ class ApplicationController < ActionController::Base
   end
 end
 ```
+
+### request
+
+```
+params             --> all
+query_parameters   --> query_string
+request_parameters --> POST
+path_parameters    --> route
+```
