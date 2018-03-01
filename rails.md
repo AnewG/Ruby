@@ -665,3 +665,47 @@ query_parameters   --> query_string
 request_parameters --> POST
 path_parameters    --> route
 ```
+
+### response
+
+```
+response.headers["Content-Type"] = "application/pdf"
+```
+
+### auth
+
+```
+# Basic
+class AdminsController < ApplicationController
+  http_basic_authenticate_with name: "humbaba", password: "5baa61e4"
+end
+
+# Digest
+# authenticate_or_request_with_http_digest 接受一个参数用户名，返回值是密码。
+# authenticate_or_request_with_http_digest 返回 false 或 nil，表明身份验证失败。
+class AdminsController < ApplicationController
+  USERS = { "lifo" => "world" }
+ 
+  before_action :authenticate
+ 
+  private
+    def authenticate
+      authenticate_or_request_with_http_digest do |username|
+        USERS[username]
+      end
+    end
+end
+```
+
+### download
+
+```
+class ClientsController < ApplicationController
+  def download_pdf
+    client = Client.find(params[:id])
+    send_file("#{Rails.root}/files/clients/#{client.id}.pdf",
+              filename: "#{client.name}.pdf",
+              type: "application/pdf")
+  end
+end
+```
