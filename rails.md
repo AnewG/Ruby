@@ -709,3 +709,15 @@ class ClientsController < ApplicationController
   end
 end
 ```
+
+### https
+
+```
+class DinnerController
+  force_ssl
+  force_ssl only: :cheeseburger
+  force_ssl except: :cheeseburger
+end
+
+all https: config.force_ssl
+```
