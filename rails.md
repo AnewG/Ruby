@@ -721,3 +721,9 @@ end
 
 all https: config.force_ssl
 ```
+
+## Routes
+
+```
+get '/patients/:id', to: 'patients#show'   # patients.show(id)
+```
