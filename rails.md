@@ -855,4 +855,25 @@ resources :articles do
   resources :comments
   resources :images, only: :index
 end
+
+http://rubyer.me/blog/583/
+```
+
+### other
+
+```
+get 'photos(/:id)', to: :display               
+# /photos/1   => Photos.display(id), /photos will exec because id is option
+
+get 'photos/:id/:user_id', to: 'photos#show'   
+# /photos/1/2 => Photos.show, params[:id] is "1", params[:user_id] is "2"
+
+get 'photos/:id/with_user/:user_id', to: 'photos#show'  
+# /photos/1/with_user/2, params is { controller: 'photos', action: 'show', id: '1', user_id: '2' }
+
+get 'photos/:id', to: 'photos#show'
+# /photos/1?user_id=2 => Photos.show, params is { controller: 'photos', action: 'show', id: '1', user_id: '2' }
+
+get 'photos/:id', to: 'photos#show', defaults: { format: 'jpg' }
+# /photos/12 => Photos.show, params[:format] is "jpg"
 ```
