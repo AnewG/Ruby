@@ -725,19 +725,19 @@ all https: config.force_ssl
 ## Routes
 
 ```
-get '/patients/:id', to: 'patients#show'                  # patients.show(id)
+get '/patients/:id', to: 'patients#show'                  # patients.show(id), or to: :show, controller: 'patients'
 get '/patients/:id', to: 'patients#show', as: 'patient'   # @patient = Patient.find(17), in html patient_path(@patient)
 
 DELETE /photos/17 ==> resources :photos ==> photos.destroy({ id: '17' })
 
 resources :photos will generate
-GET          /photos              photos#index     显示所有照片的列表
-GET          /photos/new          photos#new       返回用于新建照片的 HTML 表单
-POST         /photos              photos#create    新建照片
-GET          /photos/:id          photos#show      显示指定照片
-GET          /photos/:id/edit     photos#edit      返回用于修改照片的 HTML 表单
-PATCH/PUT    /photos/:id          photos#update    更新指定照片
-DELETE       /photos/:id          photos#destroy   删除指定照片
+GET          /photos              photos#index          显示所有照片的列表
+GET          /photos/new          photos#new            返回用于新建照片的 HTML 表单
+POST         /photos              photos#create         新建照片
+GET          /photos/:id          photos#show           显示指定照片
+GET          /photos/:id/edit     photos#edit           返回用于修改照片的 HTML 表单
+PATCH/PUT    /photos/:id          photos#update         更新指定照片
+DELETE       /photos/:id          photos#destroy        删除指定照片
 
 photos_path          ==> /photos
 new_photo_path       ==> /photos/new
@@ -745,4 +745,47 @@ edit_photo_path(:id) ==> /photos/:id/edit
 photo_path(:id)      ==> /photos/:id
 
 *_path return path, *_url return host.port.prefix
+
+----------------------
+
+resource :geocoder will generate (Singular Resources)
+GET          /geocoder/new        geocoders#new         返回用于创建 geocoder 的 HTML 表单
+POST         /geocoder            geocoders#create      新建 geocoder
+GET          /geocoder            geocoders#show        显示唯一的 geocoder 资源
+GET          /geocoder/edit       geocoders#edit        返回用于修改 geocoder 的 HTML 表单
+PATCH/PUT    /geocoder            geocoders#update      更新唯一的 geocoder 资源
+DELETE       /geocoder            geocoders#destroy     删除 geocoder 资源
+
+new_geocoder_path    ==> /geocoder/new
+edit_geocoder_path   ==> /geocoder/edit
+geocoder_path        ==> /geocoder
+
+----------------------
+
+Admin:: , app/controllers/admin
+
+namespace :admin do
+  resources :articles, :comments
+end
+
+will generate
+
+GET          /admin/articles              admin/articles#index       admin_articles_path
+GET          /admin/articles/new          admin/articles#new         new_admin_article_path
+POST         /admin/articles              admin/articles#create      admin_articles_path
+GET          /admin/articles/:id          admin/articles#show        admin_article_path(:id)
+GET          /admin/articles/:id/edit     admin/articles#edit        edit_admin_article_path(:id)
+PATCH/PUT    /admin/articles/:id          admin/articles#update      admin_article_path(:id)
+DELETE       /admin/articles/:id          admin/articles#destroy     admin_article_path(:id)
+
+scope module: 'admin' do
+  resources :articles, :comments
+end
+will route /articles(without /admin) to Admin::Articles, or resources :articles, module: 'admin'
+
+scope '/admin' do
+  resources :articles, :comments
+end
+will route /admin/articles to Articles(without Admin::), or resources :articles, path: '/admin/articles'
+
 ```
