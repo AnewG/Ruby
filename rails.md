@@ -788,4 +788,71 @@ scope '/admin' do
 end
 will route /admin/articles to Articles(without Admin::), or resources :articles, path: '/admin/articles'
 
+----------------------
+
+resources :magazines do
+  resources :ads
+end
+
+GET          /magazines/:magazine_id/ads             ads#index    显示指定杂志的所有广告的列表
+GET          /magazines/:magazine_id/ads/new         ads#new      返回为指定杂志新建广告的 HTML 表单
+POST         /magazines/:magazine_id/ads             ads#create   为指定杂志新建广告
+GET          /magazines/:magazine_id/ads/:id         ads#show     显示指定杂志的指定广告
+GET          /magazines/:magazine_id/ads/:id/edit    ads#edit     返回用于修改指定杂志的广告的 HTML 表单
+PATCH/PUT    /magazines/:magazine_id/ads/:id         ads#update   更新指定杂志的指定广告
+DELETE       /magazines/:magazine_id/ads/:id         ads#destroy  删除指定杂志的指定广告
+
+----------------------
+
+scope shallow_path: "sekret" do
+  resources :articles do
+    resources :comments, shallow: true
+  end
+end
+
+GET        /articles/:article_id/comments(.:format)       comments#index     article_comments_path
+POST       /articles/:article_id/comments(.:format)       comments#create    article_comments_path
+GET        /articles/:article_id/comments/new(.:format)   comments#new       new_article_comment_path
+GET        /sekret/comments/:id/edit(.:format)            comments#edit      edit_comment_path
+GET        /sekret/comments/:id(.:format)                 comments#show      comment_path
+PATCH/PUT  /sekret/comments/:id(.:format)                 comments#update    comment_path
+DELETE     /sekret/comments/:id(.:format)                 comments#destroy   comment_path
+
+scope shallow_prefix: "sekret" do
+  resources :articles do
+    resources :comments, shallow: true
+  end
+end
+
+GET        /articles/:article_id/comments(.:format)       comments#index      article_comments_path
+POST       /articles/:article_id/comments(.:format)       comments#create     article_comments_path
+GET        /articles/:article_id/comments/new(.:format)   comments#new        new_article_comment_path
+GET        /comments/:id/edit(.:format)                   comments#edit       edit_sekret_comment_path
+GET        /comments/:id(.:format)                        comments#show       sekret_comment_path
+PATCH/PUT  /comments/:id(.:format)                        comments#update     sekret_comment_path
+DELETE     /comments/:id(.:format)                        comments#destroy    sekret_comment_path
+
+```
+
+### concern
+
+```
+concern :commentable do
+  resources :comments
+end
+concern :image_attachable do
+  resources :images, only: :index
+end
+resources :messages, concerns: :commentable
+resources :articles, concerns: [:commentable, :image_attachable]
+
+will generate: ==========>
+
+resources :messages do
+  resources :comments
+end
+resources :articles do
+  resources :comments
+  resources :images, only: :index
+end
 ```
