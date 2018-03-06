@@ -898,3 +898,12 @@ get '/stories',       to: redirect { |path_params, req|
 get '/stories/:name', to: redirect('/articles/%{name}', status: 302)
 # redirect to other path
 ```
+
+## Active Support
+
+```
+require 'active_support' 
+require 'active_support/core_ext/object/blank'  # blank? method can use
+
+require 'active_support/all'                    # load all
+```
