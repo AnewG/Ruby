@@ -876,4 +876,11 @@ get 'photos/:id', to: 'photos#show'
 
 get 'photos/:id', to: 'photos#show', defaults: { format: 'jpg' }
 # /photos/12 => Photos.show, params[:format] is "jpg"
+
+match 'photos', to: 'photos#show', via: [:get, :post]    # get, post method
+match 'photos', to: 'photos#show', via: :all             # all methods
+
+get 'photos/:id', to: 'photos#show', constraints: { id: /[A-Z]\d{5}/ } or
+get 'photos/:id', to: 'photos#show', id: /[A-Z]\d{5}/
+# will constraint id by regex
 ```
