@@ -907,3 +907,38 @@ require 'active_support/core_ext/object/blank'  # blank? method can use
 
 require 'active_support/all'                    # load all
 ```
+
+### to_query
+
+```
+[3.4, -45.6].to_query('sample')
+# => "sample%5B%5D=3.4&sample%5B%5D=-45.6"
+
+{c: 3, b: 2, a: 1}.to_query
+# => "a=1&b=2&c=3"
+
+{id: 89, name: "John Smith"}.to_query('user')
+# => "user%5Bid%5D=89&user%5Bname%5D=John+Smith"
+```
+
+### with_options
+
+```
+class Account < ApplicationRecord
+  has_many :customers, dependent: :destroy
+  has_many :products,  dependent: :destroy
+  has_many :invoices,  dependent: :destroy
+  has_many :expenses,  dependent: :destroy
+end
+
+===>
+
+class Account < ApplicationRecord
+  with_options dependent: :destroy do |assoc|
+    assoc.has_many :customers
+    assoc.has_many :products
+    assoc.has_many :invoices
+    assoc.has_many :expenses
+  end
+end
+```
