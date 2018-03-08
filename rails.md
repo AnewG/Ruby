@@ -954,3 +954,44 @@ class MyCrawler < ThirdPartyLibrary::Crawler
   attr_accessor :log_level
 end
 ```
+
+### parent
+
+```
+module X
+  module Y
+    module Z
+    end
+  end
+end
+M = X::Y::Z
+ 
+X::Y::Z.parent # => X::Y
+M.parent       # => X::Y
+
+-------------------
+
+module X
+  module Y
+    module Z
+    end
+  end
+end
+M = X::Y::Z
+ 
+X::Y::Z.parent_name # => "X::Y"
+M.parent_name       # => "X::Y"
+
+-------------------
+
+module X
+  module Y
+    module Z
+    end
+  end
+end
+M = X::Y::Z
+ 
+X::Y::Z.parents # => [X::Y, X, Object]
+M.parents       # => [X::Y, X, Object]
+```
