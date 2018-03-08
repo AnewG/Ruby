@@ -942,3 +942,15 @@ class Account < ApplicationRecord
   end
 end
 ```
+
+### attr_internal
+
+```
+class ThirdPartyLibrary::Crawler
+  attr_internal :log_level          # will be @_log_level
+end
+ 
+class MyCrawler < ThirdPartyLibrary::Crawler
+  attr_accessor :log_level
+end
+```
